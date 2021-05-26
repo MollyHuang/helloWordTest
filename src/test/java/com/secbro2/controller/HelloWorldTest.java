@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -31,6 +32,7 @@ public class HelloWorldTest {
         //mockMvc.perform(MockMvcRequestBuilders.get("/hello")).andDo(print());
         mockMvc.perform(MockMvcRequestBuilders.get("/hello"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Hello World!")));
+                .andExpect(content().string(equalTo("Hello World!")))
+                .andDo(MockMvcResultHandlers.print());
     }
 }
