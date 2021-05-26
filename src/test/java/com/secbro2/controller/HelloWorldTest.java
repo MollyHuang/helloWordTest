@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 /**
  * @author Molly Huang
- * 需要外部請求
+ * @param
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -38,10 +38,11 @@ public class HelloWorldTest {
 
     @Test
     public void testHello() throws Exception {
-        //mockMvc.perform(MockMvcRequestBuilders.get("/hello")).andDo(print());
+        //mockMvc.perform(MockMvcRequestBuilders.get("/hello")).andDo(print());         // 簡單打印
+        //mockMvc.perform(MockMvcRequestBuilders.get("/hello").param("name", "molly"))  // 加參數時
         mockMvc.perform(MockMvcRequestBuilders.get("/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Hello World!")))
-                .andDo(MockMvcResultHandlers.print());
+                .andExpect(status().isOk())     // 200
+                .andExpect(content().string(equalTo("Hello World!")))   // body
+                .andDo(MockMvcResultHandlers.print());  // 打印
     }
 }
