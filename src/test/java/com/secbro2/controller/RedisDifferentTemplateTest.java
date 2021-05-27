@@ -21,6 +21,11 @@ class RedisDifferentTemplateTest {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
 
+    @BeforeEach
+    void init(){
+        redisTemplate.setKeySerializer(RedisSerializer.string());
+    }
+
     @Test
     void testSimple() {
         redisTemplate.opsForValue().set("myWeb", "www.choupangxia.com");
