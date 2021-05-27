@@ -24,6 +24,7 @@ class RedisDifferentTemplateTest {
     @BeforeEach
     void init(){
         redisTemplate.setKeySerializer(RedisSerializer.string());
+        redisTemplate.setValueSerializer(RedisSerializer.string());
     }
 
     @Test
