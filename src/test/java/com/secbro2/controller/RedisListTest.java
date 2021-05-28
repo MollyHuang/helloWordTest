@@ -25,17 +25,17 @@ class RedisListTest {
     @Test
     void testObject() {
         ListOperations<String, String> operations = redisTemplate.opsForList();
-        operations.leftPush("orderId", "1");
-        operations.leftPush("orderId", "2");
-        operations.leftPush("orderId", "3");
+        operations.leftPush("testList", "1");
+        operations.leftPush("testList", "2");
+        operations.leftPush("testList", "3");
 
-//		log.info("rightPop:{}", operations.rightPop("orderId"));
-//		log.info("rightPop:{}", operations.rightPop("orderId"));
-//		log.info("rightPop:{}", operations.rightPop("orderId"));
+//		log.info("rightPop:{}", operations.rightPop("testList"));
+//		log.info("rightPop:{}", operations.rightPop("testList"));
+//		log.info("rightPop:{}", operations.rightPop("testList"));
 
-//		log.info("leftPop:{}", operations.leftPop("orderId"));
-//		log.info("leftPop:{}", operations.leftPop("orderId"));
-//		log.info("leftPop:{}", operations.leftPop("orderId"));
+//		log.info("leftPop:{}", operations.leftPop("testList"));
+//		log.info("leftPop:{}", operations.leftPop("testList"));
+//		log.info("leftPop:{}", operations.leftPop("testList"));
 
     }
 

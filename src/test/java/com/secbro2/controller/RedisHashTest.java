@@ -36,12 +36,12 @@ class RedisHashTest {
         order.setOrderNo("N111");
 
         HashOperations<String, String, Order> operations = redisTemplate.opsForHash();
-        operations.put("orders", "userId-1", order);
+        operations.put("testHashOrders", "userId-1", order);
 
         order.setOrderNo("N112");
-        operations.put("orders", "userId-2", order);
+        operations.put("testHashOrders", "userId-2", order);
 
-        Order cached = operations.get("orders", "userId-1");
+        Order cached = operations.get("testHashOrders", "userId-1");
 
         Assertions.assertEquals("N111", cached.getOrderNo());
     }
@@ -51,7 +51,7 @@ class RedisHashTest {
      */
     @Test
     void testDeleteObject() {
-        redisTemplate.opsForHash().delete("orders", "userId-1");
+        redisTemplate.opsForHash().delete("testHashOrders", "userId-1");
     }
 
 }

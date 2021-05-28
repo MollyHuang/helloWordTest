@@ -35,8 +35,8 @@ public class RedisObjectTest {
         order.setOrderNo("N110");
         ValueOperations<String, Order> operations = redisTemplate.opsForValue();
 
-        operations.set("order-1", order);
-        Order cachedOrder = operations.get("order-1");      // 需類型轉換，下面才能取得 getOrderNo()
+        operations.set("RedisObjectOrderTest", order);
+        Order cachedOrder = operations.get("RedisObjectOrderTest");      // 需類型轉換，下面才能取得 getOrderNo()
 
         Assertions.assertEquals("N110", cachedOrder.getOrderNo());
     }
@@ -46,9 +46,9 @@ public class RedisObjectTest {
      */
     @Test
     void testDeleteObject() {
-        redisTemplate.delete("order-1");
+        redisTemplate.delete("RedisObjectOrderTest");
 
-        boolean exists = redisTemplate.hasKey("order-1");
+        boolean exists = redisTemplate.hasKey("RedisObjectOrderTest");
 
         Assertions.assertFalse(exists);     // 預期 false
     }
