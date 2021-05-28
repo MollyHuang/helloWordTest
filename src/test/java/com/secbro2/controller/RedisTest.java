@@ -22,12 +22,18 @@ public class RedisTest {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
 
+    /**
+     * Redis- RedisTemplate
+     */
     @Test
     void testSimple() {
         redisTemplate.opsForValue().set("testSimple", "google.com");
         Assertions.assertEquals("google.com", redisTemplate.opsForValue().get("testSimple"));
     }
 
+    /**
+     * Redis- StringRedisTemplate
+     */
     @Test
     void testStringTemplate() {
         ValueOperations<String, String> operations = stringRedisTemplate.opsForValue();
@@ -35,6 +41,9 @@ public class RedisTest {
         Assertions.assertEquals("541075754", operations.get("testStringTemplate"));
     }
 
+    /**
+     * Redis- setKeySerializer, ValueOperations
+     */
     @Test
     void testKeySerializer() {
         redisTemplate.setKeySerializer(RedisSerializer.string());

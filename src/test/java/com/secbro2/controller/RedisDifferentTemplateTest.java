@@ -29,9 +29,12 @@ class RedisDifferentTemplateTest {
 
     @Test
     void testSimple() {
-        redisTemplate.opsForValue().set("myWeb", "www.choupangxia.com");
-        log.info("rightPop:{}", redisTemplate.opsForValue().get("myWeb"));
-        log.info("rightPop:{}", stringRedisTemplate.opsForValue().get("myWeb"));
+//        redisTemplate.opsForValue().set("myWeb", "www.choupangxia.com");  // OK
+        stringRedisTemplate.opsForValue().set("Google Web", "google.com");  // OK
+
+        log.info("redisTemplate: {}", redisTemplate.opsForValue().get("Google Web"));
+        log.info("stringRedisTemplate: {}", stringRedisTemplate.opsForValue().get("Google Web"));
+
         //Assertions.assertEquals("www.choupangxia.com", redisTemplate.opsForValue().get("myWeb"));
         //Assertions.assertEquals("www.choupangxia.com", stringRedisTemplate.opsForValue().get("myWeb"));
     }

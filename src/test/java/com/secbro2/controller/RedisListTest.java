@@ -22,6 +22,9 @@ class RedisListTest {
         redisTemplate.setKeySerializer(RedisSerializer.string());
     }
 
+    /**
+     * Redis - List
+     */
     @Test
     void testObject() {
         ListOperations<String, String> operations = redisTemplate.opsForList();

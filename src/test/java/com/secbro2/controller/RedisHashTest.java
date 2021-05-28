@@ -25,7 +25,7 @@ class RedisHashTest {
     }
 
     /**
-     * 新增Hash值
+     * Redis- 新增Hash值
      */
     @Test
     void testObject() {
